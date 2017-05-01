@@ -1,0 +1,50 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+
+		http://www.springframework.org/schema/security
+
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+
+	<!-- 스프링 시큐리티는 당분간 사용하지 않는다. 20170416 -->
+
+	<http>
+
+		<http-basic />
+
+		<form-login />
+
+		<intercept-url pattern="/**" access="hasRole('admin')" />
+
+	</http>
+
+
+
+	<authentication-manager>
+
+		<authentication-provider>
+
+			<user-service>
+				<user name="admin" password="admin123" authorities="admin" />
+			</user-service>
+
+		</authentication-provider>
+
+
+
+	</authentication-manager>
+
+
+
+
+
+
+</beans:beans>
+
+
